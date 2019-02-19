@@ -210,6 +210,7 @@ class BattleTimer {
 		return true;
 	}
 	stop(/** @type {User} */ requester) {
+		return false;
 		if (requester) {
 			if (!this.timerRequesters.has(requester.userid)) return false;
 			this.timerRequesters.delete(requester.userid);
