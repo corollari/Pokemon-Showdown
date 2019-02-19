@@ -779,11 +779,13 @@ class User {
 				return this.forceRename(name, this.registered);
 			}
 		}
+		/*
 
 		if (!token || token.charAt(0) === ';') {
 			this.send(`|nametaken|${name}|Your authentication token was invalid.`);
 			return false;
 		}
+		*/
 
 		let tokenSemicolonPos = token.indexOf(';');
 		let tokenData = token.substr(0, tokenSemicolonPos);
@@ -791,6 +793,7 @@ class User {
 
 		let tokenDataSplit = tokenData.split(',');
 		let [signedChallenge, signedUserid, userType, signedDate, signedHostname] = tokenDataSplit;
+		/*
 		if (signedHostname && Config.legalhosts && !Config.legalhosts.includes(signedHostname)) {
 			Monitor.warn(`forged assertion: ${tokenData}`);
 			this.send(`|nametaken|${name}|Your assertion is for the wrong server. This server is ${Config.legalhosts[0]}.`);
@@ -835,6 +838,7 @@ class User {
 		this.s1 = tokenDataSplit[5];
 		this.s2 = tokenDataSplit[6];
 		this.s3 = tokenDataSplit[7];
+		*/
 
 		this.handleRename(name, userid, newlyRegistered, userType);
 	}
